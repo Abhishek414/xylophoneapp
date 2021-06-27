@@ -1,9 +1,10 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(XylophoneApp());
 
-class XylophoneApp extends StatelessWidget {
+class MainScreen extends StatelessWidget {
   Expanded everyThing({required int soundNumber, required Color colour}) {
     return Expanded(
       child: TextButton(
@@ -23,6 +24,7 @@ class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.black,
         body: SafeArea(
@@ -41,5 +43,20 @@ class XylophoneApp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class XylophoneApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: AnimatedSplashScreen(
+          duration: 3000,
+          splash: 'images/xylohone.png',
+          nextScreen: MainScreen(),
+          splashTransition: SplashTransition.fadeTransition,
+          backgroundColor: Colors.black,
+        ));
   }
 }
