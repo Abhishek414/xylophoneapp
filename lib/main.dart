@@ -5,11 +5,9 @@ void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
   Expanded everyThing({required int soundNumber, required Color colour}) {
-    // ignore: avoid_init_to_null
-    var child2 = null;
     return Expanded(
       child: TextButton(
-        child: child2,
+        child: const Text(''),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(colour),
         ),
