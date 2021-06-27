@@ -53,10 +53,26 @@ class XylophoneApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: AnimatedSplashScreen(
           duration: 3000,
-          splash: 'images/xylohone.png',
+          splash: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/xylohone.png'),
+              ),
+            ),
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              height: 50,
+              child: Text('play your tune',
+                  style: Theme.of(context)
+                      .textTheme
+                      .caption!
+                      .copyWith(color: Colors.white)),
+            ),
+          ),
           nextScreen: MainScreen(),
           splashTransition: SplashTransition.fadeTransition,
           backgroundColor: Colors.black,
+          splashIconSize: 140,
         ));
   }
 }
